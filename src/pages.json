@@ -1,16 +1,86 @@
 {
-	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+	"pages": [
 		{
-			"path": "pages/index/index",
-			"style": {
-				"navigationBarTitleText": "uni-app"
-			}
+			"path": "pages/home/home",
+			"style": { "navigationStyle": "custom" }
+		},
+		{
+			"path": "pages/onboard/onboard",
+			"style": { "navigationStyle": "custom" }
+		},
+		{
+			"path": "pages/list/list",
+			"style": { "navigationStyle": "custom" }
+		},
+		{
+			"path": "pages/stats/stats",
+			"style": { "navigationStyle": "custom" }
+		},
+		{
+			"path": "pages/me/me",
+			"style": { "navigationStyle": "custom" }
+		},
+		{
+			"path": "pages/threshold/threshold",
+			"style": { "navigationStyle": "custom" }
+		},
+		{
+			"path": "pages/categories/categories",
+			"style": { "navigationStyle": "custom" }
+		},
+		{
+			"path": "pages/import/import",
+			"style": { "navigationStyle": "custom" }
+		},
+		{
+			"path": "pages/permission/permission",
+			"style": { "navigationStyle": "custom" }
+		},
+		{
+			"path": "pages/record/record",
+			"style": { "navigationStyle": "custom" }
 		}
 	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
-		"navigationBarTitleText": "uni-app",
-		"navigationBarBackgroundColor": "#F8F8F8",
-		"backgroundColor": "#F8F8F8"
+		"navigationBarTitleText": "楠楠记账本",
+		"navigationBarBackgroundColor": "#FFF0BE",
+		"backgroundColor": "#FFF9EE"
+	},
+	"tabBar": {
+		"color": "#9C8C79",
+		"selectedColor": "#D2760F",
+		"backgroundColor": "#FFFFFF",
+		"borderStyle": "white",
+		"height": "58px",
+		"fontSize": "12px",
+		"iconWidth": "24px",
+		"spacing": "4px",
+		"list": [
+			{
+				"pagePath": "pages/home/home",
+				"text": "首页",
+				"iconPath": "static/tabbar/home.png",
+				"selectedIconPath": "static/tabbar/home-on.png"
+			},
+			{
+				"pagePath": "pages/list/list",
+				"text": "明细",
+				"iconPath": "static/tabbar/list.png",
+				"selectedIconPath": "static/tabbar/list-on.png"
+			},
+			{
+				"pagePath": "pages/stats/stats",
+				"text": "统计",
+				"iconPath": "static/tabbar/stats.png",
+				"selectedIconPath": "static/tabbar/stats-on.png"
+			},
+			{
+				"pagePath": "pages/me/me",
+				"text": "我的",
+				"iconPath": "static/tabbar/me.png",
+				"selectedIconPath": "static/tabbar/me-on.png"
+			}
+		]
 	}
 }

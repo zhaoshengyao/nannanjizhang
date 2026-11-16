@@ -1,0 +1,26 @@
+{
+  "id": "NotificationListener",
+  "name": "NotificationListener",
+  "version": "1.0.0",
+  "description": "监听微信/支付宝支付通知，解析金额后推送回 uni-app",
+  "_dp_type": "nativeplugin",
+  "_dp_nativeplugin": {
+    "android": {
+      "plugins": [
+        {
+          "type": "module",
+          "name": "NotificationListener",
+          "class": "com.jz.NotificationListenerModule"
+        }
+      ],
+      "integrateType": "aar",
+      "minSdkVersion": 21,
+      "permissions": [
+        "android.permission.FOREGROUND_SERVICE",
+        "android.permission.FOREGROUND_SERVICE_SPECIAL_USE",
+        "android.permission.POST_NOTIFICATIONS",
+        "android.permission.VIBRATE"
+      ]
+    }
+  }
+}

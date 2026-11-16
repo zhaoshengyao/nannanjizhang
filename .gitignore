@@ -12,6 +12,10 @@ node_modules
 dist
 *.local
 
+# 本地调试与编辑器缓存
+.tmp
+.hbuilderx
+
 # Editor directories and files
 .idea
 *.suo
