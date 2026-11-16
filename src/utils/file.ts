@@ -343,11 +343,11 @@ function saveToPrivateNative(name: string, content: string): Promise<string> {
     }
     let timer: ReturnType<typeof setTimeout> | null = null
     let done = false
-    const succeed = () => {
+    const succeed = (path: string) => {
       if (done) return
       done = true
       if (timer) clearTimeout(timer)
-      resolve('已保存到应用内 export 文件夹')
+      resolve(path)
     }
     const fail = (msg: string) => {
       if (done) return
@@ -376,7 +376,7 @@ function saveToPrivateNative(name: string, content: string): Promise<string> {
         fs.root.getDirectory('export', { create: true, exclusive: false }, (dir: any) => {
           dir.getFile(fallbackName, { create: true, exclusive: false }, (entry: any) => {
             entry.createWriter((writer: any) => {
-              writer.onwrite = () => succeed()
+              writer.onwrite = () => succeed(entry.fullPath)
               writer.onerror = () => fail('写入文件失败')
               writer.write(content)
             }, (e: any) => fail('打开文件失败：' + reason(e, '未知错误')))
@@ -397,7 +397,8 @@ export async function saveCsvFile(name: string, content: string): Promise<string
   } catch (e: any) {
     const first = String(e?.message || e || '未知错误')
     try {
-      return await saveToPrivateNative(name, content)
+      const path = await saveToPrivateNative(name, content)
+      return '已保存到 ' + path
     } catch (e2: any) {
       throw new Error(`系统 Download 不可写：${first}；应用内目录也失败：${String(e2?.message || e2 || '未知错误')}`)
     }
